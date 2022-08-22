@@ -4,7 +4,9 @@ const port = 3000
 const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
@@ -14,10 +16,17 @@ function logger(req, res, next) {
 }
 app.use(logger)
 
+// function getName(name) {
+//   const name = document.getElementsById('name').val
+//   return name
+// }
 
 app.get('/', async function (req, res) {
-
-    await res.render('index')
+  let names = ['Trav', 'Joe', 'another', 'another guy']
+  const viewData = {
+    names: names
+  }
+   await res.render('index', viewData)
 })
 
 
