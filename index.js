@@ -27,6 +27,7 @@ app.get('/', async function (req, res) {
   console.log(user)
   const viewData = {
     header: header,
+    users: users,
     user: user
   }
 

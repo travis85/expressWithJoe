@@ -9,10 +9,10 @@
 <body>
   
   <h1>THIS IS A LANDING PAGE</h1>
-  <% if(user) {%>
-    <h2> <%= user %> </h2>
+  <% if (users.includes(user)) { %>
+    <h2><%= `Hello ${user}` %></h2>
     <% } else { %>
-        <h2> <%= howdy stranger %> </h2>
+    <h2><%= 'hello stranger' %></h2>
     <% } %>
 
 </body>
