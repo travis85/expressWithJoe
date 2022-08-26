@@ -2,7 +2,6 @@ const express = require('express')
 const axios = require('axios');
 const app = express()
 const port = 3000
-const fs = require('fs');
 const path = require('path');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
