@@ -5,6 +5,7 @@ const port = 3000
 const path = require('path');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
+const events = require('./scripts/events')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -39,8 +40,28 @@ app.listen(port, () => {
 })
 
 /**
- * pass params in url quiries
- * and use data as render
- * https://stackabuse.com/get-query-strings-and-parameters-in-express-js/
+ write bash script
+ make ApI end point 
+ get expess to run that script
+
+
+ https://www.geeksforgeeks.org/node-js-child-process/
+const { exec } = require('child_process'); //spends bash shell
+
+exec('ls -lh', (error, stdout, stderr) => {
+  if (error) {
+    console.error(`error: ${error.message}`);
+    return;
+  }
+
+  if (stderr) {
+    console.error(`stderr: ${stderr}`);
+    return;
+  }
+
+  console.log(`stdout:\n${stdout}`);
+});
 
  */
+
+
