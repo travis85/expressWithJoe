@@ -5,7 +5,7 @@ const port = 3000
 const path = require('path');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
-const events = require('./scripts/events')
+const landingPageEvent = require('./scripts/landingPageEvent')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
 function logger(req, res, next) {
-    console.log(`request recieved at ${parseInt(Date.now()/100)}`)
+    console.log(`request recieved at ${new Date(Date.now())}`)
     next()
 }
 app.use(logger)
@@ -21,7 +21,7 @@ app.use(logger)
 
 app.get('/', async function (req, res) {
   const header = 'what up stranger';
-  const users = ['Trav', 'Joe', 'Danny'];
+  const users = ['Trav', 'Joe', 'Danny'];// USE FAKER
   const user = req.query.users;
   
   console.log(user)
